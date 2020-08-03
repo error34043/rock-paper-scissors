@@ -1,1 +1,1 @@
-Created for the Web Developement 101 course on the Odin Project website.
+Created for the Web Developement 101 course on the Odin Project website. The script-console-only.js contains a purely JavaScript code that can only be run on the console. A web-playable version of the game with functioning UI is in the works.
