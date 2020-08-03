@@ -53,6 +53,9 @@ const playARound = (playerSelection, computerSelection) => {
     }
 };
 
+/*
+TO PLAY 5 ROUNDS:
+
 const game = () => {
     let playCount = 0;
     let compCount = 0;
@@ -84,3 +87,4 @@ const game = () => {
 }
 
 game();
+*/
