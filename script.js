@@ -53,28 +53,23 @@ const playARound = (playerSelection, computerSelection) => {
     }
 };
 
-const playerSelection = 'rock';
-const computerSelection = computerPlay();
-//console.log(playARound(playerSelection, computerSelection));
-
 const game = () => {
     let playCount = 0;
     let compCount = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 1; i <= 5; i++) {
         let result = "";
         const playerSelection = prompt('What is your weapon of choice, brave warrior? ');
+        const computerSelection = computerPlay();
         result = playARound(playerSelection,computerSelection);
-        if (result === "Suit up because it's a tie!") {
-            playCount++;
-            compCount++;
-        } else if (result === "Too bad, but you better not be a sore loser.") {
-            playCount--;
+        if (result === "Too bad, but you better not be a sore loser.") {
             compCount++;
         } else if (result === "Winner winner, buy yourself a chicken dinner!") {
             playCount++;
-            compCount--;
         }
         console.log(result);
+        console.log('End of round ' + i + '.');
+        console.log('Your score is: ' + playCount);
+        console.log('My score is: '+ compCount);
     }
     console.log("Game over. Here's one last message before you go: ");
     if (playCount > compCount) {
