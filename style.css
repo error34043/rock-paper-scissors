@@ -24,26 +24,30 @@ Lato weights: 100, 300, 400, 700, 900. */
 }
 
 header {
-    padding: 2rem;
     grid-column: 1 / 4;
-    /*background-color: pink;*/
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Abril Fatface', cursive;
+    color: var(--babypowder);
+    font-size: 8vw;
 }
 
 .leftbar {
     grid-column: 1 / 2;
-    /*background-color: blue;*/
 }
 
 main {
     grid-column: 2 / 3;
-    /*background-color: orange;*/
 }
+
 .rightbar {
     grid-column: 3 / 4;
-    /*background-color: yellow;*/
 }
 
 footer {
     grid-column: 1 / 4;
-    /*background-color: green;*/
 }
