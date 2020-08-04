@@ -5,8 +5,11 @@ console.log(playButtons);
 playButtons.forEach(button => {
     button.addEventListener('click', () => {
         alert(playARound(button.id));
-    })
-})
+    });
+});
+
+const roundNumber = document.querySelector('#round');
+roundNumber.textContent = 'Round Number: 1';
 
 const options = ['ROCK', 'PAPER', 'SCISSORS'];
 
@@ -19,7 +22,7 @@ const computerPlay = () => {
 };
 
 const playARound = (playerSelection) => {
-    computerSelection = computerPlay();
+    let computerSelection = computerPlay();
     if (playerSelection === 'rockbtn') {
         switch (computerSelection) {
             case 'ROCK':
