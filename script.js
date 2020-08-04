@@ -1,4 +1,4 @@
-//const prompt = require('prompt-sync')(); <-Required to run on npm/node
+//const prompt = require('prompt-sync')(); //<-Required to run on npm/node
 
 const options = ['ROCK', 'PAPER', 'SCISSORS'];
 
@@ -54,7 +54,7 @@ const playARound = (playerSelection, computerSelection) => {
 };
 
 /*
-TO PLAY 5 ROUNDS:
+//TO PLAY 5 ROUNDS:
 
 const game = () => {
     let playCount = 0;

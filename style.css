@@ -3,3 +3,33 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.container {
+    display: grid;
+    grid-template: 20vh 60vh 20vh / 10vw 80vw 10vw;
+}
+
+header {
+    padding: 2rem;
+    grid-column: 1 / 4;
+    background-color: pink;
+}
+
+.leftbar {
+    grid-column: 1 / 2;
+    background-color: blue;
+}
+
+main {
+    grid-column: 2 / 3;
+    background-color: orange;
+}
+.rightbar {
+    grid-column: 3 / 4;
+    background-color: yellow;
+}
+
+footer {
+    grid-column: 1 / 4;
+    background-color: green;
+}
