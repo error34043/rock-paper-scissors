@@ -22,11 +22,6 @@ button {
     cursor: pointer;
 }
 
-/* CSS rules to specify families:
-font-family: 'Abril Fatface', cursive;
-font-family: 'Lato', sans-serif;
-Lato weights: 100, 300, 400, 700, 900. */
-
 .container {
     display: grid;
     grid-template: 20vh 75vh 5vh / 5vw 90vw 5vw;
@@ -117,15 +112,15 @@ main button {
     border-color: var(--babypowder);
 }
 
-#rockbtn:active {
+#rockbtn:hover {
     background-color: var(--bittersweet);
 }
 
-#paperbtn:active {
+#paperbtn:hover {
     background-color: var(--bluepantone);
 }
 
-#scissorsbtn:active {
+#scissorsbtn:hover {
     background-color: var(--mediumaquamarine);
 }
 

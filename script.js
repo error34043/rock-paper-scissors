@@ -1,26 +1,49 @@
 //const prompt = require('prompt-sync')(); //<-Required to run on npm/node
 
 const playButtons = document.querySelectorAll('.playbtn');
+const rockBtn = document.querySelector('#rockbtn');
+const paperBtn = document.querySelector('#paperbtn');
+const scissorsBtn = document.querySelector('#scissorsbtn');
+const roundDisplay = document.querySelector('#perround');
+const gameOverDisp = document.querySelector('#gameover');
+const finalMessageDisp = document.querySelector('#finalmessage');
+const roundNumber = document.querySelector('#round');
+const playScore = document.querySelector('#playscore');
+const compScore = document.querySelector('#compscore');
+let numberOfRounds = 0;
+let playerScore = 0;
+let computerScore = 0;
+
+//Creating a refresh link
+const a = document.createElement('a');
+a.setAttribute('onclick', 'window.location.href=this');
+a.textContent = 'Play again?';
+a.style.cssText = "color: #69DC9E; text-decoration: underline; font-family: 'Lato',sans-serif; font-size: 3vh; letter-spacing: 3px; font-weight: 900; cursor: pointer; background-color: var(--eerieblack);";
+
+//Running functions on button click
 console.log(playButtons);
 playButtons.forEach(button => {
     button.addEventListener('click', () => {
-        alert(playARound(button.id));
+        let disp = (playARound(button.id))
+        roundDisplay.textContent = disp;
+        countPoints(disp);
     });
 });
 
-//const roundNumber = document.querySelector('#round');
-//roundNumber.textContent = 'Round Number: 1';
-
+//Options available to computer
 const options = ['ROCK', 'PAPER', 'SCISSORS'];
 
+//Getting a random number
 const randomNumber = max =>  Math.floor(Math.random() * Math.floor(max));
 
+//Generating random computer choice
 const computerPlay = () => {
     let index = randomNumber(3);
     let iSay = options[index];
     return iSay;
 };
 
+//For one round
 const playARound = (playerSelection) => {
     let computerSelection = computerPlay();
     if (playerSelection === 'rockbtn') {
@@ -64,38 +87,47 @@ const playARound = (playerSelection) => {
     }
 };
 
-/*
-//TO PLAY 5 ROUNDS:
-
-const game = () => {
-    let playCount = 0;
-    let compCount = 0;
-    for (let i = 1; i <= 5; i++) {
-        let result = "";
-        const playerSelection = prompt('What is your weapon of choice, brave warrior? ');
-        const computerSelection = computerPlay();
-        result = playARound(playerSelection,computerSelection);
-        if (result === "Too bad, but you better not be a sore loser.") {
-            compCount++;
-        } else if (result === "Winner winner, buy yourself a chicken dinner!") {
-            playCount++;
-        }
-        console.log(result);
-        console.log('End of round ' + i + '.');
-        console.log('Your score is: ' + playCount);
-        console.log('My score is: '+ compCount);
+//To add up points and display appropriate outputs
+const countPoints = (disp) => {
+    switch (disp) {
+        case 'Too bad, but you better not be a sore loser.':
+            computerScore++;
+            numberOfRounds++;
+            writePoints(playerScore, computerScore, numberOfRounds);
+            break;
+        case 'Winner winner, buy yourself a chicken dinner!':
+            playerScore++;
+            numberOfRounds++;
+            writePoints(playerScore, computerScore, numberOfRounds);
+            break;
+        case "Suit up because it's a tie!":
+            numberOfRounds++;
+            writePoints(playerScore, computerScore, numberOfRounds);
+            break;
     }
-    console.log("Game over. Here's one last message before you go: ");
-    if (playCount > compCount) {
-        console.log("You may have lost some battles but you have won the war.");
-    } else if (playCount < compCount) {
-        console.log("HAHAHAHA try again, loser.");
-    } else if (playCount === compCount) {
-        console.log("Looks like I have finally found my equal. Shall we try again?");
-    } else {
-        console.log("I'm confused. :(");
+
+    if (playerScore === 5 && computerScore === 5) {
+        finalMessageDisp.textContent = "Looks like I have finally found my equal. ";
+        finalMessageDisp.appendChild(a);
+    } else if (playerScore === 5) {
+        finalMessageDisp.textContent = "You may have lost some battles but you have won the war. ";
+        finalMessageDisp.appendChild(a);
+    } else if (computerScore === 5) {
+        finalMessageDisp.textContent = "HAHAHAHA try again, loser. ";
+        finalMessageDisp.appendChild(a);
+    }
+
+    if (computerScore === 5 | playerScore === 5) {
+        gameOverDisp.textContent = "Game over. Here's one last message before you go: ";
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorsBtn.disabled = true;
     }
 }
 
-game();
-*/
+//To display round number and points
+const writePoints = (playerScore, computerScore, numberOfRounds) => {
+    playScore.textContent = playerScore;
+    compScore.textContent = computerScore;
+    roundNumber.textContent = 'Round number: ' + numberOfRounds;
+}
