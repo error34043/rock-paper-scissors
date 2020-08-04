@@ -2,7 +2,7 @@
     --eerieblack: #1A1A1A;
     --bittersweet: #FF6663;
     --bluepantone: #3423A6;
-    --aquamarine: #61F2C2;
+    --mediumaquamarine: #69DC9E;
     --babypowder: #F0F4EF;
 }
 
@@ -13,6 +13,15 @@
     background-color: var(--eerieblack);
 }
 
+*:focus {
+    outline: 0;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
 /* CSS rules to specify families:
 font-family: 'Abril Fatface', cursive;
 font-family: 'Lato', sans-serif;
@@ -20,7 +29,7 @@ Lato weights: 100, 300, 400, 700, 900. */
 
 .container {
     display: grid;
-    grid-template: 20vh 60vh 20vh / 10vw 80vw 10vw;
+    grid-template: 20vh 75vh 5vh / 5vw 90vw 5vw;
 }
 
 header {
@@ -36,12 +45,57 @@ header h1 {
     font-size: 8vw;
 }
 
-.leftbar {
-    grid-column: 1 / 2;
-}
-
 main {
     grid-column: 2 / 3;
+    display: grid;
+    grid-template: 2fr 1fr 2fr / auto;
+}
+
+main #score {
+    background-color: brown;
+}
+
+main #buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+main button {
+    height: 7.5vh;
+    width: 25vw;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    font-family: 'Lato', sans-serif;
+    font-size: 2.5vw;
+    font-weight: 300;
+    letter-spacing: 0.75vh;
+    color: var(--babypowder);
+    border: solid;
+    border-radius: 10px;
+    border-color: var(--babypowder);
+}
+
+#rockbtn:active {
+    background-color: var(--bittersweet);
+}
+
+#paperbtn:active {
+    background-color: var(--bluepantone);
+}
+
+#scissorsbtn:active {
+    background-color: var(--mediumaquamarine);
+}
+
+main #results {
+    background-color: coral;
+}
+
+.leftbar {
+    grid-column: 1 / 2;
 }
 
 .rightbar {
@@ -50,4 +104,15 @@ main {
 
 footer {
     grid-column: 1 / 4;
+    background-color: var(--babypowder);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+footer p {
+    background-color: var(--babypowder);
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1,75vh;
 }

@@ -1,5 +1,13 @@
 //const prompt = require('prompt-sync')(); //<-Required to run on npm/node
 
+const playButtons = document.querySelectorAll('.playbtn');
+console.log(playButtons);
+playButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        alert(playARound(button.id));
+    })
+})
+
 const options = ['ROCK', 'PAPER', 'SCISSORS'];
 
 const randomNumber = max =>  Math.floor(Math.random() * Math.floor(max));
@@ -10,9 +18,9 @@ const computerPlay = () => {
     return iSay;
 };
 
-const playARound = (playerSelection, computerSelection) => {
-    let youSay = playerSelection.toUpperCase();
-    if (youSay === 'ROCK') {
+const playARound = (playerSelection) => {
+    computerSelection = computerPlay();
+    if (playerSelection === 'rockbtn') {
         switch (computerSelection) {
             case 'ROCK':
                 return "Suit up because it's a tie!";
@@ -24,7 +32,7 @@ const playARound = (playerSelection, computerSelection) => {
                 return "Winner winner, buy yourself a chicken dinner!";
                 break;
         }
-    } else if (youSay === 'PAPER') {
+    } else if (playerSelection === 'paperbtn') {
         switch (computerSelection) {
             case 'PAPER':
                 return "Suit up because it's a tie!";
@@ -36,7 +44,7 @@ const playARound = (playerSelection, computerSelection) => {
                 return "Winner winner, buy yourself a chicken dinner!";
                 break;
         }
-    } else if (youSay === 'SCISSORS') {
+    } else if (playerSelection === 'scissorsbtn') {
         switch (computerSelection) {
             case 'SCISSORS':
                 return "Suit up because it's a tie!";
