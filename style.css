@@ -1,8 +1,22 @@
+:root {
+    --eerieblack: #1A1A1A;
+    --bittersweet: #FF6663;
+    --bluepantone: #3423A6;
+    --aquamarine: #61F2C2;
+    --babypowder: #F0F4EF;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: var(--eerieblack);
 }
+
+/* CSS rules to specify families:
+font-family: 'Abril Fatface', cursive;
+font-family: 'Lato', sans-serif;
+Lato weights: 100, 300, 400, 700, 900. */
 
 .container {
     display: grid;
@@ -12,24 +26,24 @@
 header {
     padding: 2rem;
     grid-column: 1 / 4;
-    background-color: pink;
+    /*background-color: pink;*/
 }
 
 .leftbar {
     grid-column: 1 / 2;
-    background-color: blue;
+    /*background-color: blue;*/
 }
 
 main {
     grid-column: 2 / 3;
-    background-color: orange;
+    /*background-color: orange;*/
 }
 .rightbar {
     grid-column: 3 / 4;
-    background-color: yellow;
+    /*background-color: yellow;*/
 }
 
 footer {
     grid-column: 1 / 4;
-    background-color: green;
+    /*background-color: green;*/
 }
