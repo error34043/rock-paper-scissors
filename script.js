@@ -8,8 +8,8 @@ playButtons.forEach(button => {
     });
 });
 
-const roundNumber = document.querySelector('#round');
-roundNumber.textContent = 'Round Number: 1';
+//const roundNumber = document.querySelector('#round');
+//roundNumber.textContent = 'Round Number: 1';
 
 const options = ['ROCK', 'PAPER', 'SCISSORS'];
 
