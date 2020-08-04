@@ -172,7 +172,23 @@ footer p {
     background-color: var(--babypowder);
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 1,75vh;
+    font-size: 1.75vh;
+}
+
+footer a {
+    background-color: var(--babypowder);
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 1.75vh;
+    color: var(--bittersweet);
+}
+
+footer a:hover {
+    color: var(--bluepantone);
+}
+
+footer a:active {
+    color: var(--mediumaquamarine)
 }
 
 .lose {
