@@ -1,6 +1,9 @@
 //const prompt = require('prompt-sync')(); //<-Required to run on npm/node
 
 const playButtons = document.querySelectorAll('.playbtn');
+const pointBoxes = document.querySelectorAll('main .points');
+const pointTag = document.querySelectorAll('main .pointtag');
+const pointValue = document.querySelectorAll('main .pointvalue');
 const rockBtn = document.querySelector('#rockbtn');
 const paperBtn = document.querySelector('#paperbtn');
 const scissorsBtn = document.querySelector('#scissorsbtn');
@@ -21,7 +24,6 @@ a.textContent = 'Play again?';
 a.style.cssText = "color: #69DC9E; text-decoration: underline; font-family: 'Lato',sans-serif; font-size: 3vh; letter-spacing: 3px; font-weight: 900; cursor: pointer; background-color: var(--eerieblack);";
 
 //Running functions on button click
-console.log(playButtons);
 playButtons.forEach(button => {
     button.addEventListener('click', () => {
         let disp = (playARound(button.id))
@@ -87,6 +89,60 @@ const playARound = (playerSelection) => {
     }
 };
 
+//Function to run if player wins
+const onWin = () => {
+    finalMessageDisp.textContent = "Looks like I have finally found my equal. ";
+    finalMessageDisp.appendChild(a);
+    pointBoxes.forEach((box) => {
+        box.classList.remove('normal');
+        box.classList.add('win');
+    });
+    pointTag.forEach((item) => {
+        item.classList.remove('normal');
+        item.classList.add('win');
+    });
+    pointValue.forEach((item) => {
+        item.classList.remove('normal');
+        item.classList.add('win');
+    });
+}
+
+//Function to run if player loses
+const onLose = () => {
+    finalMessageDisp.textContent = "You may have lost some battles but you have won the war. ";
+    finalMessageDisp.appendChild(a);
+    pointBoxes.forEach((box) => {
+        box.classList.remove('normal');
+        box.classList.add('lose');
+    });
+    pointTag.forEach((item) => {
+        item.classList.remove('normal');
+        item.classList.add('lose');
+    });
+    pointValue.forEach((item) => {
+        item.classList.remove('normal');
+        item.classList.add('lose');
+    });
+}
+
+//Function to run in the event of a tie
+const onTie = () => {
+    finalMessageDisp.textContent = "HAHAHAHA try again, loser. ";
+    finalMessageDisp.appendChild(a);
+    pointBoxes.forEach((box) => {
+        box.classList.remove('normal');
+        box.classList.add('tie');
+    });
+    pointTag.forEach((item) => {
+        item.classList.remove('normal');
+        item.classList.add('tie');
+    });
+    pointValue.forEach((item) => {
+        item.classList.remove('normal');
+        item.classList.add('tie');
+    });
+}
+
 //To add up points and display appropriate outputs
 const countPoints = (disp) => {
     switch (disp) {
@@ -107,14 +163,11 @@ const countPoints = (disp) => {
     }
 
     if (playerScore === 5 && computerScore === 5) {
-        finalMessageDisp.textContent = "Looks like I have finally found my equal. ";
-        finalMessageDisp.appendChild(a);
+        onWin();
     } else if (playerScore === 5) {
-        finalMessageDisp.textContent = "You may have lost some battles but you have won the war. ";
-        finalMessageDisp.appendChild(a);
+        onLose();
     } else if (computerScore === 5) {
-        finalMessageDisp.textContent = "HAHAHAHA try again, loser. ";
-        finalMessageDisp.appendChild(a);
+        onTie();
     }
 
     if (computerScore === 5 | playerScore === 5) {
